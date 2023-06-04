@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %} Homepage {% endblock %}
+
+{% block head %}
+
+    {% with messages = get_flashed_message() %}
+        {% if messages %}
+            <ul class="flashes">
+                {% for msg in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+
+{% endblock %}
+
+{% block content %}
+
+<ul>
+{% for pet in pets %}
+
+    <li><a href="">{{pet.name}}</a></li>
+    {% if {{pet.photo_url}} %}
+    <img src="{{pet.photo_url}}" alt="">
+    {% endif %}
+    {% if {{pet.available}} %}
+    <b>Available</b>
+    {% endif %}
+
+
+{% endfor %}
+</ul>
+
+<a href="/add">Add Pet</a>
+
+
+{% endblock %}
